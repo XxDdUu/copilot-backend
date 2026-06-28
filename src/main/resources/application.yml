@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/copilot
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+jwt:
+  secret: "yourSuperSecretKeyThatIsAtLeast32BytesLongForHS256BitSecurity!!"
+  expiration: 86400000 # 1 day in milliseconds
+
+minio:
+  url: http://localhost:9000
+  access-key: admin
+  secret-key: admin123456
+  bucket: copilot-documents
+
+server:
+  port: 8080
+  
+logging:
+  level:
+    org.springframework.security: TRACE
