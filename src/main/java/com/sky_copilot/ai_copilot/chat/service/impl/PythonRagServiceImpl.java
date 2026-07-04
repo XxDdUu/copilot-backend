@@ -6,25 +6,17 @@ import com.sky_copilot.ai_copilot.chat.service.RagService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+import com.sky_copilot.ai_copilot.ai.client.AiClient;
 
 @Service
 @RequiredArgsConstructor
 public class PythonRagServiceImpl implements RagService {
 
     private final RestTemplate restTemplate;
+    private final AiClient aiClient;
 
     @Override
     public String ask(String question) {
-
-        RagRequest request = new RagRequest(question);
-
-        RagResponse response =
-                restTemplate.postForObject(
-                        "http://localhost:8000/ask",
-                        request,
-                        RagResponse.class
-                );
-
-        return response.getAnswer();
+        return aiClient.ask(new RagRequest(question)).getAnswer();
     }
 }

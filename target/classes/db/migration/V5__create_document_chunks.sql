@@ -7,7 +7,7 @@ CREATE TABLE document_chunks (
 
     content TEXT NOT NULL,
 
-    embedding VECTOR(1536),
+    embedding VECTOR(1024),
 
     created_at TIMESTAMP DEFAULT NOW(),
 

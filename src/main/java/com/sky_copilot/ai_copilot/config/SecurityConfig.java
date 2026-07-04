@@ -2,6 +2,7 @@ package com.sky_copilot.ai_copilot.config;
 
 import com.sky_copilot.ai_copilot.auth.security.CustomUserDetailsService;
 import com.sky_copilot.ai_copilot.auth.security.JwtAuthenticationFilter;
+import com.sky_copilot.ai_copilot.auth.security.ServiceAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,7 @@ public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final CustomUserDetailsService customUserDetailsService;
+    private final ServiceAuthenticationFilter serviceAuthenticationFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -37,6 +39,14 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
                 )
 
+                .addFilterBefore(
+                        jwtAuthenticationFilter,
+                        UsernamePasswordAuthenticationFilter.class
+                )
+                .addFilterBefore(
+                        serviceAuthenticationFilter,
+                        JwtAuthenticationFilter.class
+                )
                 .addFilterBefore(
                         jwtAuthenticationFilter,
                         UsernamePasswordAuthenticationFilter.class

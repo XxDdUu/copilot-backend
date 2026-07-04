@@ -3,8 +3,10 @@ package com.sky_copilot.ai_copilot;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @SpringBootApplication
+@ConfigurationProperties
 @ConfigurationPropertiesScan
 public class EnterpriseAiCopilotApplication {
 

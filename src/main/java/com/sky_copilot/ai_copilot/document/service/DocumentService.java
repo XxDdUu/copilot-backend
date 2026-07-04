@@ -15,6 +15,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
+import com.sky_copilot.ai_copilot.ai.client.AiClient;
+import java.util.List;
+import io.minio.GetObjectArgs;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -27,7 +30,24 @@ public class DocumentService {
     private final MinioProperties minioProperties;
     private final DocumentRepository documentRepository;
     private final UserRepository userRepository;
-    private final RestTemplate restTemplate;
+    private final AiClient aiClient;
+    
+    public List<Document> getAllDocuments() {
+        return documentRepository.findAll();
+    }
+
+    public void downloadDocument(String objectKey, String fileName) {
+        try {
+            minioClient.getObject(
+                    GetObjectArgs.builder()
+                            .bucket(minioProperties.getBucket())
+                            .object(objectKey)
+                            .build()
+            );
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to download document: " + e.getMessage(), e);
+        }
+    }
 
     public DocumentUploadResponse upload(
             MultipartFile file,
@@ -69,11 +89,7 @@ public class DocumentService {
                         .objectKey(saved.getObjectKey())
                         .build();
 
-                restTemplate.postForObject(
-                        "http://localhost:8000/api/ingest",
-                        ingestRequest,
-                        String.class
-                );
+                aiClient.ingest(ingestRequest);
             } catch (Exception e) {
                 System.err.println("Failed to trigger RAG ingestion: " + e.getMessage());
             }
