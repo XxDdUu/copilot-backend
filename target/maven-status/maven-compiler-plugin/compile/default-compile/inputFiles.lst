@@ -45,6 +45,14 @@
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/document/repository/projection/DocumentChunkProjection.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/document/service/DocumentService.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/document/service/SearchDocumentService.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/controller/ExportController.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/dto/ExportRequest.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/dto/ExportResponse.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/format/ExportFormat.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/service/DocumentTextExtractor.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/service/ExportService.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/service/MinioDocumentService.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/service/PdfExporter.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/security/UserPrincipal.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/user/controller/UserController.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/user/dto/UserResponse.java
