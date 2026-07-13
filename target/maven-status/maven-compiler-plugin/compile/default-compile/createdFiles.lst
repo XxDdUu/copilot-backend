@@ -30,6 +30,7 @@ com/sky_copilot/ai_copilot/auth/service/AuthService.class
 com/sky_copilot/ai_copilot/chat/dto/ChatMessageRequest.class
 com/sky_copilot/ai_copilot/chat/model/RagRequest.class
 com/sky_copilot/ai_copilot/security/UserPrincipal.class
+com/sky_copilot/ai_copilot/export/dto/DocumentTextResponse$DocumentTextResponseBuilder.class
 com/sky_copilot/ai_copilot/user/entity/Role$RoleBuilder.class
 com/sky_copilot/ai_copilot/document/repository/DocumentRepository.class
 com/sky_copilot/ai_copilot/chat/entity/ChatSession$ChatSessionBuilder.class
@@ -49,6 +50,7 @@ com/sky_copilot/ai_copilot/user/controller/UserController.class
 com/sky_copilot/ai_copilot/auth/controller/AuthController.class
 com/sky_copilot/ai_copilot/config/SecurityConfig.class
 com/sky_copilot/ai_copilot/document/dto/DocumentUploadResponse.class
+com/sky_copilot/ai_copilot/export/service/DocumentTextExtractor$ExtractedText.class
 com/sky_copilot/ai_copilot/config/MinioConfig.class
 com/sky_copilot/ai_copilot/chat/service/impl/PythonRagServiceImpl.class
 com/sky_copilot/ai_copilot/export/format/ExportFormat.class
@@ -60,6 +62,7 @@ com/sky_copilot/ai_copilot/chat/dto/ChatMessageRequest$ChatMessageRequestBuilder
 com/sky_copilot/ai_copilot/chat/dto/ChatMessageResponse.class
 com/sky_copilot/ai_copilot/auth/dto/LoginRequest.class
 com/sky_copilot/ai_copilot/user/entity/User.class
+com/sky_copilot/ai_copilot/export/dto/DocumentTextResponse.class
 com/sky_copilot/ai_copilot/document/dto/DocumentIngestRequest.class
 com/sky_copilot/ai_copilot/export/controller/ExportController.class
 com/sky_copilot/ai_copilot/chat/service/impl/ChatServiceImpl.class

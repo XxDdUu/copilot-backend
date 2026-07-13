@@ -10,7 +10,14 @@ import org.apache.pdfbox.text.PDFTextStripper;
 @Service
 public class DocumentTextExtractor {
 
+    public record ExtractedText(String content, Integer pageCount) {
+    }
+
     public String extract(byte[] content, String contentType) throws Exception {
+        return extractWithPageCount(content, contentType).content();
+    }
+
+    public ExtractedText extractWithPageCount(byte[] content, String contentType) throws Exception {
 
         switch (contentType) {
 
@@ -19,18 +26,18 @@ public class DocumentTextExtractor {
 
             case "text/plain":
             case "text/markdown":
-                return new String(content, StandardCharsets.UTF_8);
+                return new ExtractedText(new String(content, StandardCharsets.UTF_8), null);
 
             default:
                 throw new UnsupportedOperationException(contentType);
         }
     }
 
-    private String extractPdf(byte[] content) throws IOException {
+    private ExtractedText extractPdf(byte[] content) throws IOException {
 
         try (PDDocument document = Loader.loadPDF(content)) {
             PDFTextStripper stripper = new PDFTextStripper();
-            return stripper.getText(document);
+            return new ExtractedText(stripper.getText(document), document.getNumberOfPages());
         }
     }
 }

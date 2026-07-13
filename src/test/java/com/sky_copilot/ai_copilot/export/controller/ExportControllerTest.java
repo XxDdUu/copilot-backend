@@ -4,6 +4,17 @@ import com.sky_copilot.ai_copilot.config.MinioProperties;
 import com.sky_copilot.ai_copilot.document.entity.Document;
 import com.sky_copilot.ai_copilot.document.repository.DocumentRepository;
 import com.sky_copilot.ai_copilot.export.service.ExportService;
+import com.sky_copilot.ai_copilot.export.service.DocumentTextExtractor;
+import com.sky_copilot.ai_copilot.export.dto.DocumentTextResponse;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import io.minio.GetObjectArgs;
 import io.minio.GetObjectResponse;
 import io.minio.MinioClient;
@@ -87,7 +98,7 @@ class ExportControllerTest {
         when(textResponse.readAllBytes()).thenReturn("# Notes\n\n- item".getBytes(StandardCharsets.UTF_8));
         when(minioClient.getObject(any(GetObjectArgs.class))).thenReturn(textResponse);
 
-        ResponseEntity<String> response = exportController.showDocumentText(2L);
+        ResponseEntity<DocumentTextResponse> response = exportController.showDocumentText(2L);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());

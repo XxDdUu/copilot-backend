@@ -2,6 +2,7 @@ package com.sky_copilot.ai_copilot.export.controller;
 
 import com.sky_copilot.ai_copilot.export.dto.ExportRequest;
 import com.sky_copilot.ai_copilot.export.dto.ExportResponse;
+import com.sky_copilot.ai_copilot.export.dto.DocumentTextResponse;
 import com.sky_copilot.ai_copilot.export.format.ExportFormat;
 import com.sky_copilot.ai_copilot.export.service.ExportService;
 import com.sky_copilot.ai_copilot.document.repository.DocumentRepository;
@@ -136,7 +137,9 @@ public class ExportController {
      * @return Text content as markdown or plain text
      */
     @GetMapping("/{id}/text")
-    public ResponseEntity<String> showDocumentText(@PathVariable("id") Long id) {
+    public ResponseEntity<DocumentTextResponse> showDocumentText(
+            @PathVariable Long id) {
+
         try {
             logger.info("Retrieving text content for document ID: {}", id);
 
@@ -148,24 +151,30 @@ public class ExportController {
 
             byte[] content = retrieveDocumentFromMinIO(document.getObjectKey());
 
-            String textContent = documentTextExtractor.extract(
+            DocumentTextExtractor.ExtractedText extractedText = documentTextExtractor.extractWithPageCount(
                     content,
                     document.getContentType());
+            String textContent = extractedText.content();
 
-            MediaType mediaType = isMarkdownDocument(document)
-                    ? MediaType.TEXT_MARKDOWN
-                    : MediaType.TEXT_PLAIN;
+            DocumentTextResponse response = DocumentTextResponse.builder()
+                    .id(document.getId())
+                    .name(document.getFileName())
+                    .contentType(document.getContentType())
+                    .size((long) content.length)
+                    .characterCount(textContent.length())
+                    .pageCount(extractedText.pageCount())
+                    .content(textContent)
+                    .build();
 
-            return ResponseEntity.ok()
-                    .contentType(mediaType)
-                    .body(textContent);
+            return ResponseEntity.ok(response);
 
         } catch (IllegalArgumentException e) {
             logger.error("Document not found: {}", id);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+            return ResponseEntity.notFound().build();
+
         } catch (Exception e) {
             logger.error("Error retrieving text for document {}: {}", id, e.getMessage(), e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+            return ResponseEntity.internalServerError().build();
         }
     }
 

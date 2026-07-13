@@ -46,6 +46,7 @@
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/document/service/DocumentService.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/document/service/SearchDocumentService.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/controller/ExportController.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/dto/DocumentTextResponse.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/dto/ExportRequest.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/dto/ExportResponse.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/format/ExportFormat.java
