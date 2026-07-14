@@ -1,0 +1,101 @@
+Title: Bai tap Chương 1.pdf
+Author: ok
+Created: 2026-07-14 10:59:01
+Description: Exported from Enterprise AI Copilot
+
+BÀI TẬP CHƯƠNG I 
+Bài 1. Tìm tập xác định và biểu diễn tập xác định đó trên mặt phẳng (Oxy) 
+ : 
+  a) z = ln (x + y)   ; b) z = 2 2 2 24 x y x y 1− − + + −  
+  c) z = 
+2
+1
+y x−
+   ; d) z = arcsin 
+y 1
+x
+−
+ 
+Bài 2. Tìm các đạo hàm riêng của các hàm số  
+ a) z = 2 2x y+  ;  b) z = x + y − xey ; 
+c) z = cos x2y2 ;  d) z = 
+3yx  (x > 0). 
+Bài 3. Tìm các đạo hàm riêng : 
+ a) z = 
+y
+xe  tại M (1 ; 1) ; b) z = ( )2 2ln x x y+ +  tại M (-1 ; 3 ) ; 
+ c) z = yx tại M (2 ; e) ;  d) z = 
+x
+arctg
+y
+ tại M(1 ; 1). 
+Bài 4. 
+ a) Cho z = u2.sin v ; u = 
+x
+y
+ ; v = y x . Tính z’x ; z’y. 
+ b) Cho z = ln (u2 + v2) ; u = x.y ; v = 
+x
+y
+. Tính z’x ; z’y. 
+Bài 5. Chứng minh rằng : 
+ a) Nếu z = f(x2 + y2) với f là hàm khả vi thì y.z’x − x.z’y = 0 ;  
+ b) Nếu z = ln (x2 + xy + y2) thì x.z’x + y.z’y = 2 ; 
+ c) Nếu z = y.ln (x2 − y2) thì x y 2
+1 1 z
+z z .
+x y y
+ + =  
+Bài 6. Tính các đạo hàm riêng cấp hai của các hàm số sau : 
+ a) z = ( )
+3
+2 21
+x y
+3
++  ;  b) z = x2. ln (x + y) ; 
+ c) z = ( )2 2ln x x y+ +  ; d) z = yx. 
+Bài 7. Tính vi phân toàn phần của các hàm số : 
+ a) z = 2 2x y+  ;  b) z = x + y − xey ; 
+c) z = cos x2y2 ;  d) z = 
+3yx  (x > 0). 
+Bài 8. Tính vi phân toàn phần của : 
+ a) z = 
+y
+xe  tại M (1 ; 1) ; b) z = ( )2 2ln x x y+ +  tại M (-1 ; 3 ) ; 
+ c) z = yx tại M (2 ; e) ;  d) z = 
+x
+arctg
+y
+ tại M(1 ; 1). 
+ 
+Bài 9. Tính gần đúng : 
+ a) A = ( ) ( )
+2 2
+5,995 8,003+  ;  b) B = ( ) ( )
+2 2
+3 1,009 0,008+  ; 
+ c) C = ( )3 4ln 1,03 0,98 1+ −  ; d) D = ( )
+20,015.e 2,02 .+  
+Bài 10. Tìm vi phân toàn phần cấp 2 của các hàm 2 biến : 
+ a) z = ( )2 2ln x x y+ +  tại M (0 ; 1) ; 
+ b) z = ex.cos xy  tại M(1 ; 0). 
+ c) z = 
+yx.ee  tại M(0 ; 1). 
+Bài 11. Tìm cực trị của các hàm hai biến : 
+  a) z = 2xy − 3x2 − 2y2 + 10 ; b) z = x2 − xy + y2 − 2x + y ; 
+  c) z = x + y − x.ey ;  d) z = sinx + cosy + cos(x − y), với x, y 0 ;
+2
+ 
+  
+ 
+. 
+Bài 12. Tìm cực trị có điều kiện của các hàm hai biến : 
+  a) z = xy với x + y = 1 ;  b) z = xy với x2 + y2 = 2 ; 
+  c) z = x2y + 2 với x + y = 6 ; d) z = 1 − x2 − y2 với (x − 1)2 + (y − 1)2 = 1. 
+Bài 13. Tìm giá trị lớn nhất và nhỏ nhất của các hàm hai biến : 
+  a) z = x3 + y3 − 3xy         trên miền D giới hạn bởi : 0  x  2 ; −1  y  2 ; 
+  b) z = x2 + y2 − xy − 4x   trên miền D giới hạn bởi : x = 0 ; y = 0 ; x + 3y = 12 ; 
+  c) z = x2 + 3y2 + x − y    trên miền D gới hạn bởi : x = 1 ; y = 1 ; x + y = 1. 
+ 
+ 
+ 

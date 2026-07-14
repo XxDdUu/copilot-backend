@@ -1,2 +1,3 @@
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/test/java/com/sky_copilot/ai_copilot/EnterpriseAiCopilotApplicationTests.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/test/java/com/sky_copilot/ai_copilot/export/controller/ExportControllerTest.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/test/java/com/sky_copilot/ai_copilot/export/service/DocumentTextServiceTest.java

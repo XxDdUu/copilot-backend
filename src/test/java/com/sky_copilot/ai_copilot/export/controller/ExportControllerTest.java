@@ -5,6 +5,7 @@ import com.sky_copilot.ai_copilot.document.entity.Document;
 import com.sky_copilot.ai_copilot.document.repository.DocumentRepository;
 import com.sky_copilot.ai_copilot.export.service.ExportService;
 import com.sky_copilot.ai_copilot.export.service.DocumentTextExtractor;
+import com.sky_copilot.ai_copilot.export.service.DocumentTextService;
 import com.sky_copilot.ai_copilot.export.dto.DocumentTextResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -53,6 +54,9 @@ class ExportControllerTest {
     @Mock
     private MinioProperties minioProperties;
 
+    @Mock
+    private DocumentTextService documentTextService;
+
     @InjectMocks
     private ExportController exportController;
 
@@ -93,16 +97,23 @@ class ExportControllerTest {
                 .objectKey("notes.md")
                 .build();
 
-        when(documentRepository.findById(2L)).thenReturn(Optional.of(document));
-        GetObjectResponse textResponse = mock(GetObjectResponse.class);
-        when(textResponse.readAllBytes()).thenReturn("# Notes\n\n- item".getBytes(StandardCharsets.UTF_8));
-        when(minioClient.getObject(any(GetObjectArgs.class))).thenReturn(textResponse);
+        DocumentTextResponse textResponse = DocumentTextResponse.builder()
+                .id(2L)
+                .name("notes.md")
+                .contentType("text/markdown")
+                .size(20L)
+                .pageCount(1)
+                .characterCount(14)
+                .content("# Notes\n\n- item")
+                .build();
+
+        when(documentTextService.getDocumentText(2L)).thenReturn(textResponse);
 
         ResponseEntity<DocumentTextResponse> response = exportController.showDocumentText(2L);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
-        assertEquals("# Notes\n\n- item", response.getBody());
-        assertEquals(MediaType.TEXT_MARKDOWN_VALUE, response.getHeaders().getContentType().toString());
+        assertEquals("# Notes\n\n- item", response.getBody().getContent());
+        assertEquals(MediaType.APPLICATION_JSON_VALUE, response.getHeaders().getContentType().toString());
     }
 }

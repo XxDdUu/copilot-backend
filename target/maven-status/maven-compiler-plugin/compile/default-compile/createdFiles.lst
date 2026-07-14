@@ -47,6 +47,7 @@ com/sky_copilot/ai_copilot/user/entity/User$UserBuilder.class
 com/sky_copilot/ai_copilot/ai/config/AiProperties.class
 com/sky_copilot/ai_copilot/document/entity/Document.class
 com/sky_copilot/ai_copilot/user/controller/UserController.class
+com/sky_copilot/ai_copilot/export/service/DocumentTextService.class
 com/sky_copilot/ai_copilot/auth/controller/AuthController.class
 com/sky_copilot/ai_copilot/config/SecurityConfig.class
 com/sky_copilot/ai_copilot/document/dto/DocumentUploadResponse.class
@@ -72,4 +73,5 @@ com/sky_copilot/ai_copilot/document/entity/Document$DocumentBuilder.class
 com/sky_copilot/ai_copilot/config/WebConfig.class
 com/sky_copilot/ai_copilot/chat/entity/ChatSession.class
 com/sky_copilot/ai_copilot/user/repository/RoleRepository.class
+com/sky_copilot/ai_copilot/export/controller/ExportDownloadController.class
 com/sky_copilot/ai_copilot/chat/controller/ChatController.class

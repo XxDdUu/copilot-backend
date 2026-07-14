@@ -1,2 +1,3 @@
 com/sky_copilot/ai_copilot/EnterpriseAiCopilotApplicationTests.class
 com/sky_copilot/ai_copilot/export/controller/ExportControllerTest.class
+com/sky_copilot/ai_copilot/export/service/DocumentTextServiceTest.class

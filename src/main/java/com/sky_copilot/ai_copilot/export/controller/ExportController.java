@@ -5,6 +5,7 @@ import com.sky_copilot.ai_copilot.export.dto.ExportResponse;
 import com.sky_copilot.ai_copilot.export.dto.DocumentTextResponse;
 import com.sky_copilot.ai_copilot.export.format.ExportFormat;
 import com.sky_copilot.ai_copilot.export.service.ExportService;
+import com.sky_copilot.ai_copilot.export.service.DocumentTextService;
 import com.sky_copilot.ai_copilot.document.repository.DocumentRepository;
 import com.sky_copilot.ai_copilot.document.entity.Document;
 import com.sky_copilot.ai_copilot.config.MinioProperties;
@@ -50,6 +51,9 @@ public class ExportController {
 
     @Autowired
     private final DocumentTextExtractor documentTextExtractor;
+
+    @Autowired
+    private DocumentTextService documentTextService;
     /**
      * Exports a document in the specified format
      *
@@ -60,34 +64,10 @@ public class ExportController {
     @PostMapping("/{documentId}/export")
     public ResponseEntity<ExportResponse> export(
             @PathVariable Long documentId,
-            @RequestParam ExportFormat format,
-            @RequestBody(required = false) ExportRequest exportRequest) {
+            @RequestParam ExportFormat format) {
 
-        try {
-            logger.info("Exporting document {} to format {}", documentId, format);
-
-            // If no export request provided, use defaults
-            if (exportRequest == null) {
-                exportRequest = new ExportRequest(
-                        "Document_" + documentId,
-                        "No content provided",
-                        "System",
-                        "Auto-generated export"
-                );
-            }
-
-            ExportResponse response = exportService.exportDocument(documentId, format, exportRequest);
-            logger.info("Successfully exported document {} to {}", documentId, format);
-
-            return ResponseEntity.ok(response);
-
-        } catch (IllegalArgumentException e) {
-            logger.error("Invalid export format: {}", format, e);
-            return ResponseEntity.badRequest().build();
-        } catch (Exception e) {
-            logger.error("Error exporting document {}: {}", documentId, e.getMessage(), e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+        ExportResponse response = exportService.exportDocument(documentId, format);
+        return ResponseEntity.ok(response);
     }
 
     /**
@@ -141,31 +121,7 @@ public class ExportController {
             @PathVariable Long id) {
 
         try {
-            logger.info("Retrieving text content for document ID: {}", id);
-
-            Document document = documentRepository.findById(id)
-                    .orElseThrow(() -> {
-                        logger.warn("Document not found: {}", id);
-                        return new IllegalArgumentException("Document not found: " + id);
-                    });
-
-            byte[] content = retrieveDocumentFromMinIO(document.getObjectKey());
-
-            DocumentTextExtractor.ExtractedText extractedText = documentTextExtractor.extractWithPageCount(
-                    content,
-                    document.getContentType());
-            String textContent = extractedText.content();
-
-            DocumentTextResponse response = DocumentTextResponse.builder()
-                    .id(document.getId())
-                    .name(document.getFileName())
-                    .contentType(document.getContentType())
-                    .size((long) content.length)
-                    .characterCount(textContent.length())
-                    .pageCount(extractedText.pageCount())
-                    .content(textContent)
-                    .build();
-
+            DocumentTextResponse response = documentTextService.getDocumentText(id);
             return ResponseEntity.ok(response);
 
         } catch (IllegalArgumentException e) {
