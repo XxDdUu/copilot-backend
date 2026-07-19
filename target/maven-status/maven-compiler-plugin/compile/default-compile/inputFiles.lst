@@ -45,6 +45,9 @@
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/document/repository/projection/DocumentChunkProjection.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/document/service/DocumentService.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/document/service/SearchDocumentService.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/email/controller/EmailController.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/email/dto/SendEmailRequest.java
+/home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/email/service/EmailService.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/controller/ExportController.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/controller/ExportDownloadController.java
 /home/duy/Documents/enterprise-ai-copilot/enterprise-copilot-backend/src/main/java/com/sky_copilot/ai_copilot/export/dto/DocumentTextResponse.java

@@ -9,7 +9,6 @@ import com.sky_copilot.ai_copilot.export.format.ExportFormat;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -87,7 +86,8 @@ public class ExportService {
         return new ExportResponse(
                 generateDownloadUrl(fileId, fileName),
                 fileName,
-                format.getContentType()
+                format.getContentType(),
+                "Your export is ready. Share the download URL with the user."
         );
     }
 

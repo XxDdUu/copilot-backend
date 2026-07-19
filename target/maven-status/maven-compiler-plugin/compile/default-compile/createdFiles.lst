@@ -9,6 +9,7 @@ com/sky_copilot/ai_copilot/document/repository/projection/DocumentChunkProjectio
 com/sky_copilot/ai_copilot/auth/dto/RegisterRequest.class
 com/sky_copilot/ai_copilot/chat/repository/ChatSessionRepository.class
 com/sky_copilot/ai_copilot/document/service/DocumentService.class
+com/sky_copilot/ai_copilot/email/service/EmailService.class
 com/sky_copilot/ai_copilot/auth/security/JwtAuthenticationFilter.class
 com/sky_copilot/ai_copilot/document/service/SearchDocumentService.class
 com/sky_copilot/ai_copilot/document/dto/SearchDocumentRequest.class
@@ -22,6 +23,7 @@ com/sky_copilot/ai_copilot/chat/service/RagService.class
 com/sky_copilot/ai_copilot/export/service/MinioDocumentService.class
 com/sky_copilot/ai_copilot/export/service/DocumentTextExtractor.class
 com/sky_copilot/ai_copilot/ai/dto/EmbeddingResponse.class
+com/sky_copilot/ai_copilot/email/dto/SendEmailRequest.class
 com/sky_copilot/ai_copilot/export/service/PdfExporter.class
 com/sky_copilot/ai_copilot/chat/entity/ChatMessage.class
 com/sky_copilot/ai_copilot/config/MinioProperties.class
@@ -40,6 +42,7 @@ com/sky_copilot/ai_copilot/export/service/ExportService$1.class
 com/sky_copilot/ai_copilot/auth/security/ServiceAuthenticationFilter.class
 com/sky_copilot/ai_copilot/export/service/ExportService.class
 com/sky_copilot/ai_copilot/chat/model/RagResponse.class
+com/sky_copilot/ai_copilot/email/controller/EmailController.class
 com/sky_copilot/ai_copilot/chat/service/ChatService.class
 com/sky_copilot/ai_copilot/auth/security/JwtTokenProvider.class
 com/sky_copilot/ai_copilot/auth/dto/RegisterResponse.class

@@ -7,6 +7,7 @@ package com.sky_copilot.ai_copilot.export.dto;
 public record ExportResponse(
         String downloadUrl,
         String fileName,
-        String contentType
+        String contentType,
+        String message
 ) {
 }
